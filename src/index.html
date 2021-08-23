@@ -3,3 +3,20 @@ layout: html5
 ---
 
 <h1>workin</h1>
+
+<ul>
+	{% for ea in bookmarks %}
+	<li>
+		<div>
+			<a href="{{ ea.url }}">{{ ea.pageTitle }}</a>
+		</div>
+		<div>{{ ea.description }}</div>
+		<div>
+			{% for tag in ea.tags %}
+			<a href="tags/{{ tag }}">{{ tag }}</a>
+			{% endfor %}
+		</div>
+		<div>{{ ea._updatedAt }}</div>
+	</li>
+	{% endfor %}
+</ul>
